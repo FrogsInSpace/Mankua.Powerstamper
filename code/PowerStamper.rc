@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -36,13 +34,10 @@ BEGIN
     CTEXT           "None Selected",IDC_SEL_NAME,13,73,81,8
     GROUPBOX        "Stamping image",IDC_STATIC,4,87,100,46
     PUSHBUTTON      "Render",IDC_RENDER_IN,64,115,34,14
-    CONTROL         "Progress1",IDC_PERCENT,"msctls_progress32",WS_BORDER | 
-                    0x1,35,244,63,8
+    CONTROL         "Progress1",IDC_PERCENT,"msctls_progress32",PBS_SMOOTH | WS_BORDER,35,244,63,8
     PUSHBUTTON      "Set size",IDC_SIZE_IN,28,115,34,14
-    CONTROL         "Stamping Image",IDC_SET_INBMP,"CustButton",WS_TABSTOP,8,
-                    98,90,14
-    CONTROL         "Output Bitmaps",IDC_SET_OUTBMP,"CustButton",WS_TABSTOP,
-                    8,226,90,14
+    CONTROL         "Stamping Image",IDC_SET_INBMP,"CustButton",WS_TABSTOP,8,98,90,14
+    CONTROL         "Output Bitmaps",IDC_SET_OUTBMP,"CustButton",WS_TABSTOP,8,226,90,14
     LTEXT           "samples :",IDC_STATIC,16,145,30,8
     LTEXT           "prefiltering : ",IDC_STATIC,16,156,39,8
     CONTROL         "",IDC_NEB_SAMP_EDIT,"CustEdit",WS_TABSTOP,60,145,30,10
@@ -62,16 +57,15 @@ BEGIN
     CONTROL         "A",IDC_NEBBI_ABOUT,"CustButton",WS_TABSTOP,86,46,15,14
     LTEXT           "Power Stamper",IDC_STATIC,13,49,49,8
     GROUPBOX        "",IDC_STATIC,4,40,100,22
-    CONTROL         "Premultiplied Alpha                       ",
-                    IDC_PRE_ALPHA,"Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | 
-                    WS_TABSTOP,6,201,93,10
+    CONTROL         "Premultiplied Alpha                       ",IDC_PRE_ALPHA,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFTTEXT | WS_TABSTOP,6,201,93,10
     PUSHBUTTON      "log",IDC_LOG,5,261,47,13
     CONTROL         "A",IDC_NEBBI_HELP,"CustButton",WS_TABSTOP,70,46,15,14
-    CONTROL         125,IDC_BANNER,"Static",SS_BITMAP | SS_NOTIFY,4,3,100,38,
-                    WS_EX_CLIENTEDGE
+    CONTROL         IDB_BANNER_MANKUA,IDC_BANNER,"Static",SS_BITMAP | SS_NOTIFY | SS_CENTERIMAGE,2,0,104,24
+    CTEXT           "Recompiled by\n Josef 'spacefrog' Wienerroither",IDC_STATIC_RECOMPILE,0,23,108,18,NOT WS_GROUP,WS_EX_TRANSPARENT
 END
 
-IDD_OUTSIZE DIALOG  0, 0, 149, 42
+IDD_OUTSIZE DIALOG 0, 0, 149, 42
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Output Bitmap Size"
 FONT 8, "MS Sans Serif"
@@ -87,17 +81,15 @@ BEGIN
     LTEXT           "Height",IDC_STATIC,15,25,22,8
 END
 
-IDD_INSIZE DIALOG  0, 0, 151, 74
+IDD_INSIZE DIALOG 0, 0, 151, 74
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Stamping Image Size"
 FONT 8, "MS Sans Serif"
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,97,35,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,97,54,50,14
-    CONTROL         "Viewport size",IDC_SIZE_VIEWPORT,"Button",
-                    BS_AUTORADIOBUTTON | WS_GROUP,7,7,57,10
-    CONTROL         "Custom size",IDC_SIZE_CUSTOM,"Button",
-                    BS_AUTORADIOBUTTON,7,19,53,10
+    CONTROL         "Viewport size",IDC_SIZE_VIEWPORT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,7,57,10
+    CONTROL         "Custom size",IDC_SIZE_CUSTOM,"Button",BS_AUTORADIOBUTTON,7,19,53,10
     GROUPBOX        "",IDC_STATIC,4,1,90,67
     CONTROL         "",IDC_IBS_WIDTH_SPIN,"SpinnerControl",0x0,81,30,7,10
     CONTROL         "",IDC_IBS_WIDTH,"CustEdit",WS_TABSTOP,50,30,30,10
@@ -117,16 +109,11 @@ FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,86,125,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,141,125,50,14
-    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_0,"CustButton",
-                    WS_TABSTOP,107,39,75,14
-    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_1,"CustButton",
-                    WS_TABSTOP,107,55,75,14
-    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_2,"CustButton",
-                    WS_TABSTOP,107,71,75,14
-    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_3,"CustButton",
-                    WS_TABSTOP,107,87,75,14
-    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_4,"CustButton",
-                    WS_TABSTOP,107,103,75,14
+    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_0,"CustButton",WS_TABSTOP,107,39,75,14
+    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_1,"CustButton",WS_TABSTOP,107,55,75,14
+    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_2,"CustButton",WS_TABSTOP,107,71,75,14
+    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_3,"CustButton",WS_TABSTOP,107,87,75,14
+    CONTROL         "Set Output Bitmap",IDC_SET_OUTBMP_4,"CustButton",WS_TABSTOP,107,103,75,14
     LTEXT           "Mat ID",IDC_STATIC,36,28,22,8
     LTEXT           "Bitmap",IDC_STATIC,134,28,22,8
     GROUPBOX        "",IDC_STATIC,4,20,269,101
@@ -143,40 +130,24 @@ BEGIN
     CONTROL         "",IDC_MATID_SPIN_4,"SpinnerControl",0x0,57,105,7,10
     LTEXT           "Number of Groups: ",IDC_STATIC,124,9,61,8
     PUSHBUTTON      "Set Number",IDC_SET_NUMGROUPS,69,7,50,14
-    CTEXT           "2",IDC_TXT_NUMGROUPS,187,8,21,11,SS_CENTERIMAGE,
-                    WS_EX_STATICEDGE
-    CONTROL         "Set",IDC_SET_SIZE_0,"CustButton",WS_TABSTOP,185,39,36,
-                    14
-    CONTROL         "Set",IDC_SET_SIZE_1,"CustButton",WS_TABSTOP,185,55,36,
-                    14
-    CONTROL         "Set",IDC_SET_SIZE_2,"CustButton",WS_TABSTOP,185,71,36,
-                    14
-    CONTROL         "Set",IDC_SET_SIZE_3,"CustButton",WS_TABSTOP,185,87,36,
-                    14
-    CONTROL         "Set",IDC_SET_SIZE_4,"CustButton",WS_TABSTOP,185,103,36,
-                    14
+    CTEXT           "2",IDC_TXT_NUMGROUPS,187,8,21,11,SS_CENTERIMAGE,WS_EX_STATICEDGE
+    CONTROL         "Set",IDC_SET_SIZE_0,"CustButton",WS_TABSTOP,185,39,36,14
+    CONTROL         "Set",IDC_SET_SIZE_1,"CustButton",WS_TABSTOP,185,55,36,14
+    CONTROL         "Set",IDC_SET_SIZE_2,"CustButton",WS_TABSTOP,185,71,36,14
+    CONTROL         "Set",IDC_SET_SIZE_3,"CustButton",WS_TABSTOP,185,87,36,14
+    CONTROL         "Set",IDC_SET_SIZE_4,"CustButton",WS_TABSTOP,185,103,36,14
     LTEXT           "Bitmap Size",IDC_STATIC,185,28,38,8
-    CONTROL         "Delete",IDC_GROUP_DELETE_0,"CustButton",WS_TABSTOP,223,
-                    39,36,14
-    CONTROL         "Delete",IDC_GROUP_DELETE_1,"CustButton",WS_TABSTOP,223,
-                    55,36,14
-    CONTROL         "Delete",IDC_GROUP_DELETE_2,"CustButton",WS_TABSTOP,223,
-                    71,36,14
-    CONTROL         "Delete",IDC_GROUP_DELETE_3,"CustButton",WS_TABSTOP,223,
-                    87,36,14
-    CONTROL         "Delete",IDC_GROUP_DELETE_4,"CustButton",WS_TABSTOP,223,
-                    103,36,14
+    CONTROL         "Delete",IDC_GROUP_DELETE_0,"CustButton",WS_TABSTOP,223,39,36,14
+    CONTROL         "Delete",IDC_GROUP_DELETE_1,"CustButton",WS_TABSTOP,223,55,36,14
+    CONTROL         "Delete",IDC_GROUP_DELETE_2,"CustButton",WS_TABSTOP,223,71,36,14
+    CONTROL         "Delete",IDC_GROUP_DELETE_3,"CustButton",WS_TABSTOP,223,87,36,14
+    CONTROL         "Delete",IDC_GROUP_DELETE_4,"CustButton",WS_TABSTOP,223,103,36,14
     LTEXT           "Use",IDC_STATIC,10,28,14,8
-    CONTROL         "",IDC_GROUP_USE_0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    12,42,8,8
-    CONTROL         "",IDC_GROUP_USE_1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    12,58,8,8
-    CONTROL         "",IDC_GROUP_USE_2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    12,74,8,8
-    CONTROL         "",IDC_GROUP_USE_3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    12,90,8,8
-    CONTROL         "",IDC_GROUP_USE_4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    12,106,8,8
+    CONTROL         "",IDC_GROUP_USE_0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,42,8,8
+    CONTROL         "",IDC_GROUP_USE_1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,58,8,8
+    CONTROL         "",IDC_GROUP_USE_2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,74,8,8
+    CONTROL         "",IDC_GROUP_USE_3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,90,8,8
+    CONTROL         "",IDC_GROUP_USE_4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,106,8,8
     CONTROL         "",IDC_UVW_SPIN_0,"SpinnerControl",0x0,97,41,7,10
     CONTROL         "",IDC_UVW_SPIN_1,"SpinnerControl",0x0,97,57,7,10
     CONTROL         "",IDC_UVW_SPIN_2,"SpinnerControl",0x0,97,73,7,10
@@ -190,7 +161,7 @@ BEGIN
     CONTROL         "",IDC_UVW_EDIT_4,"CustEdit",WS_TABSTOP,67,105,30,10
 END
 
-IDD_NUM_GROUPS DIALOG  0, 0, 180, 46
+IDD_NUM_GROUPS DIALOG 0, 0, 180, 46
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Set Number of Groups"
 FONT 8, "MS Sans Serif"
@@ -203,14 +174,12 @@ BEGIN
     GROUPBOX        "",IDC_STATIC,7,3,113,36
 END
 
-IDD_LOG_DLG DIALOG  0, 0, 233, 173
+IDD_LOG_DLG DIALOG 0, 0, 233, 173
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "PowerStamper Log Info"
 FONT 8, "MS Sans Serif"
 BEGIN
-    CONTROL         "",IDC_LOG_TEXT,"RICHEDIT",TCS_FOCUSONBUTTONDOWN | 
-                    TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP | 
-                    0xc00,7,7,219,159
+    CONTROL         "",IDC_LOG_TEXT,"RICHEDIT",TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | WS_VSCROLL | WS_TABSTOP | 0xc00,7,7,219,159
 END
 
 IDD_ABOUT DIALOGEX 0, 0, 225, 63
@@ -219,10 +188,8 @@ CAPTION "About PowerStamper"
 FONT 8, "MS Sans Serif", 0, 0, 0x1
 BEGIN
     GROUPBOX        "",IDC_STATIC,4,0,217,59
-    LTEXT           "Power Stamper 1.0\nMarch 10, 2009\n\nDeveloped by Diego A. Castaño\nAll Rights Reserved © 2001-2009\nMankua Software Inc.",
-                    IDC_STATIC,110,7,109,49
-    CONTROL         121,IDC_MANKUA,"Static",SS_BITMAP,7,7,97,49,
-                    WS_EX_CLIENTEDGE
+    LTEXT           "Power Stamper 1.0\nMarch 10, 2009\n\nDeveloped by Diego A. Castaño\nAll Rights Reserved © 2001-2009\nMankua Software Inc.",IDC_STATIC,110,7,109,49
+    CONTROL         IDB_MANKUA_WHITE,IDC_MANKUA,"Static",SS_BITMAP,7,7,97,49,WS_EX_CLIENTEDGE
 END
 
 
@@ -232,14 +199,22 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
+    IDD_NEBBIUTIL, DIALOG
+    BEGIN
+    END
+
     IDD_OUTSIZE, DIALOG
     BEGIN
         LEFTMARGIN, 4
         RIGHTMARGIN, 145
         TOPMARGIN, 4
         BOTTOMMARGIN, 38
+    END
+
+    IDD_INSIZE, DIALOG
+    BEGIN
     END
 
     IDD_OUTBMP_BYMATID, DIALOG
@@ -322,7 +297,7 @@ END
 // Menu
 //
 
-IDR_OUTBMPS_MENU MENU 
+IDR_OUTBMPS_MENU MENU
 BEGIN
     POPUP "Options"
     BEGIN
@@ -337,25 +312,42 @@ END
 //
 
 IDB_ABOUT               BITMAP                  "About.bmp"
+
 IDB_ABOUT_MASK          BITMAP                  "About_Mask.bmp"
+
 IDB_PS_LOGO             BITMAP                  "ps_logo.bmp"
-IDB_MANKUA_WHITE        BITMAP                  "C:\\WorkspaceSVN\\Mankua\\Logos\\logo_mankua_white_h76.bmp"
-IDB_MANKUA_BLACK        BITMAP                  "C:\\WorkspaceSVN\\Mankua\\Logos\\logo_mankua_black_h76.bmp"
+
+IDB_MANKUA_WHITE        BITMAP                  "logo_mankua_white_h76.bmp"
+
+IDB_MANKUA_BLACK        BITMAP                  "logo_mankua_black_h76.bmp"
+
 IDB_HELP_MASK           BITMAP                  "Help_Mask.bmp"
+
 IDB_HELP                BITMAP                  "Help.bmp"
-IDB_BANNER_CRACKART     BITMAP                  "C:\\WorkspaceSVN\\Mankua\\Logos\\banner_crackart_150.bmp"
-#endif    // English (U.S.) resources
+
+IDB_BANNER_MANKUA       BITMAP                  "banner_mankua.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_NEBBIUTIL AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.K.) resources
+// English (United Kingdom) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
 #pragma code_page(1252)
-#endif //_WIN32
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -388,11 +380,11 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_CLASSNAME           "PowerStamper"
     IDS_PARAMETERS          "Parameters"
-    IDS_LIBDESC             "PowerStamper 1.0 ( DEMO ) Mankua ( www.mankua.com )"
+    IDS_LIBDESC             "PowerStamper 1.0 - Mankua ( www.mankua.com )"
     IDS_CATEGORY            "PowerStamper"
     IDS_MULTISEL            "Multiple Selected"
     IDS_NONESEL             "None Selected"
@@ -406,7 +398,7 @@ BEGIN
     IDS_COMPANY             "c0c1c2c3c4c5c6c7c8c9c0c1c2c3c4c5c6c7c8c9"
 END
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_CANCEL_PAINT        "Are you sure you want to cancel the current stamping process?"
     IDS_SERIAL_NUMBER       "s0s1s2s3s4s5s6s7s8s9s0s1s2s3s4s5s6s7s8s9"
@@ -415,7 +407,7 @@ BEGIN
     IDS_REQ_AUTH            "Request Authorization...!"
 END
 
-#endif    // English (U.K.) resources
+#endif    // English (United Kingdom) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -14,10 +14,30 @@
 
 #include "Nebbi.h"
 
-HINSTANCE hInstance;
 #if MAX_VERSION_MAJOR < 10
-	int controlsInit = FALSE;
+int controlsInit = FALSE;
 #endif
+
+
+HINSTANCE hInstance;
+
+TCHAR *GetString(int id)
+{
+	static TCHAR buf[256];
+	if (hInstance)
+	{
+#if MAX_VERSION_MAJOR < 15
+		return LoadString(hInstance, id, buf, sizeof(buf)) ? buf : NULL;
+#else
+		return LoadString(hInstance, id, buf, _countof(buf)) ? buf : NULL;
+#endif	
+	}
+	return NULL;
+}
+
+
+
+
 
 BOOL InDate() {
 	return TRUE;
@@ -36,7 +56,8 @@ BOOL InDate() {
 		}
 	}
 
-BOOL WINAPI DllMain(HINSTANCE hinstDLL,ULONG fdwReason,LPVOID lpvReserved) {
+BOOL WINAPI DllMain(HINSTANCE hinstDLL,ULONG fdwReason,LPVOID lpvReserved) 
+{
 
 #if MAX_VERSION_MAJOR < 10
 	hInstance = hinstDLL;
@@ -60,7 +81,11 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL,ULONG fdwReason,LPVOID lpvReserved) {
 #else
 	if( fdwReason == DLL_PROCESS_ATTACH )
 	{
+#if MAX_VERSION_MAJOR >  14
+		MaxSDK::Util::UseLanguagePackLocale();
+#endif		
 		hInstance = hinstDLL;
+		
 		DisableThreadLibraryCalls(hInstance);
 	}
 #endif
@@ -70,37 +95,26 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL,ULONG fdwReason,LPVOID lpvReserved) {
 
 
 
-__declspec( dllexport ) const TCHAR *
-LibDescription() { return GetString(IDS_LIBDESC); }
+__declspec( dllexport ) const TCHAR *LibDescription() { return GetString(IDS_LIBDESC); }
 
 
-__declspec( dllexport ) int LibNumberClasses() {
-	return 1;
+__declspec(dllexport) int LibNumberClasses() { return 1; }
+
+
+__declspec( dllexport ) ClassDesc* LibClassDesc(int i) 
+{
+	switch(i) 
+	{
+		case 0: 
+			return GetSkeletonUtilDesc();
+		default:
+			return 0;
+	}
 }
 
 
-__declspec( dllexport ) ClassDesc* LibClassDesc(int i) {
-	switch(i) {
-		case 0: return GetSkeletonUtilDesc();
-		default: return 0;
-		}
-	}
-
-
-__declspec( dllexport ) ULONG LibVersion() { return VERSION_3DSMAX; }
-
+__declspec( dllexport ) ULONG LibVersion()	 { return VERSION_3DSMAX; }
 
 __declspec( dllexport ) ULONG CanAutoDefer() { return 1; }
 
 
-TCHAR *GetString(int id)
-{
-	static TCHAR buf[256];
-	if(hInstance)
-#if MAX_VERSION_MAJOR < 15
-		return LoadString(hInstance, id, buf, sizeof(buf)) ? buf : NULL;
-#else
-		return LoadString(hInstance, id, buf, _countof(buf)) ? buf : NULL;
-#endif	
-	return NULL;
-}

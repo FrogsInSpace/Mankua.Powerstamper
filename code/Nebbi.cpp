@@ -60,11 +60,22 @@ Bitmap *	NebbiUtility::inBM = NULL;
  |	Class Descriptor
 \*===========================================================================*/
 
-class SkeletonUtilClassDesc:public ClassDesc {
+class SkeletonUtilClassDesc:public ClassDesc 
+{
 	public:
 	int 			IsPublic()					{ return TRUE; }
-	void *			Create( BOOL loading )		{ return &theNebbiUtility; }
-	const TCHAR *	ClassName()					{ return GetString(IDS_CLASSNAME); }
+	void *			Create( BOOL loading = FALSE )		{ return &theNebbiUtility; }
+	const TCHAR *	ClassName()					
+	{ 
+		TCHAR* str = GetString(IDS_CLASSNAME);
+		return str; 
+	}
+	
+
+#if MAX_VERSION_MAJOR >= 22
+	const TCHAR *	NonLocalizedClassName()		{ return ClassName(); }
+#endif 
+
 	SClass_ID		SuperClassID()				{ return UTILITY_CLASS_ID; }
 	Class_ID 		ClassID()					{ return NEBBI_CLASSID; }
 	const TCHAR* 	Category()					{ return GetString(IDS_CATEGORY);  }

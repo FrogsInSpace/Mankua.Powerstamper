@@ -37,6 +37,7 @@
 #define IDB_HELP_MASK                   123
 #define IDB_HELP                        124
 #define IDB_BANNER_CRACKART             125
+#define IDB_BANNER_MANKUA               126
 #define IDD_ABOUT                       163
 #define IDC_BTN1                        1000
 #define IDC_PAINT_OUT                   1000
@@ -49,6 +50,7 @@
 #define IDC_PERCENT                     1010
 #define IDC_OBS_HEIGHT                  1011
 #define IDC_SIZE_VIEWPORT               1011
+#define IDC_STATIC_RECOMPILE            1011
 #define IDC_SIZE_CUSTOM                 1012
 #define IDC_IBS_HEIGHT                  1013
 #define IDC_IBS_WIDTH                   1014
@@ -129,7 +131,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        126
+#define _APS_NEXT_RESOURCE_VALUE        127
 #define _APS_NEXT_COMMAND_VALUE         40002
 #define _APS_NEXT_CONTROL_VALUE         1059
 #define _APS_NEXT_SYMED_VALUE           101
