@@ -770,7 +770,7 @@ static INT_PTR CALLBACK DefaultDlgProc(HWND hWnd,UINT msg,WPARAM wParam,LPARAM l
 					break;
 
 				case IDC_BANNER:
-					ShellExecute(NULL, _T("open"), _T("http://www.crackart.org"), NULL, NULL, SW_SHOWNORMAL);
+					ShellExecute(NULL, _T("open"), _T("http://www.mankua.com/powerstamper.php"), NULL, NULL, SW_SHOWNORMAL);
 					break;
 			}
 			break;
