@@ -35,6 +35,10 @@ Slot 7 :	Output Group 1 BMP Name
 #include "Nebbi.h"
 #include <process.h>
 
+#ifndef _INC_SHELLAPI
+#include <shellapi.h>
+#endif
+
 // Warning messages
 #define WARN_MULTIPLE_SEL	1
 #define WARN_NONE_SEL		2
@@ -621,7 +625,9 @@ static INT_PTR CALLBACK OutputsDlgProc(HWND hWnd,UINT msg,WPARAM wParam,LPARAM l
 					fileName.remove(0,pto);
 
 					iBmpBut->SetText( fileName );
-					iBmpBut->SetTooltip( TRUE , TSTR( ogi->bmp_names[group].c_str() ) );
+
+					iBmpBut->SetTooltip( TRUE , ogi->bmp_names[group].c_str() );
+					//iBmpBut->SetTooltip( TRUE , TSTR(ogi->bmp_names[group].c_str() );
 
 					if ( DoesFileExist( ogi->bmp_names[group].c_str() ) ) {
 						iBmpBut->SetRightClickNotify(TRUE);
@@ -1881,7 +1887,7 @@ int NebbiUtility::BuildZones(NebbiRendContext *rgc, Mesh *theMesh) {
 	TVFace *outtvFace = theMesh->mapFaces(rgc->uvw);
 	Point3 *outtVerts = theMesh->mapVerts(rgc->uvw);
 
-	BOOL all_selected = theMesh->faceSel.NumberSet() == 0;
+	BOOL all_selected = theMesh->FaceSel().NumberSet() == 0;
 
 	if (!all_selected) {
 		info_message.printf( _T("%s - Some faces are selected.\n") , info_message );
@@ -1911,7 +1917,7 @@ int NebbiUtility::BuildZones(NebbiRendContext *rgc, Mesh *theMesh) {
 
 		unsigned int f_mat_id = theMesh->faces[nf].getMatID();
 
-		if ( theMesh->faces[nf].getMatID() == rgc->mat_id && ( theMesh->faceSel[nf] || all_selected ) ) 
+		if ( theMesh->faces[nf].getMatID() == rgc->mat_id && ( theMesh->FaceSel()[nf] || all_selected ) ) 
 		{
 			for ( int i=0; i<3; i++ )
 			{

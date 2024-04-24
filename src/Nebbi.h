@@ -166,9 +166,9 @@ public:
 	void SetFace( int ind, Point3 v0, Point3 v1, Point3 v2, Point3 t0, Point3 t1, Point3 t2, int w, int h, int aa ) {
 		index = ind;
 
-		this->v0 = Point2(v0.x,v0.y);
-		this->v1 = Point2(v1.x,v1.y);
-		this->v2 = Point2(v2.x,v2.y);
+		this->v0 = v0.XY();
+		this->v1 = v1.XY();
+		this->v2 = v2.XY();
 
 		xmin = v0.x;
 		if ( v1.x < xmin ) xmin = v1.x;
@@ -187,8 +187,8 @@ public:
 		if ( v2.y > ymax ) ymax = v2.y;
 
 		// Los vectores entre los puntos
-		Point2 vec01 = v1 - v0;
-		Point2 vec02 = v2 - v0;
+		Point2 vec01 = (v1 - v0).XY();
+		Point2 vec02 = (v2 - v0).XY();
 
 		// Los puntos medios de esos vectores
 		Point2 c01 = Point2(	v0.x + 0.5f * vec01.x ,
